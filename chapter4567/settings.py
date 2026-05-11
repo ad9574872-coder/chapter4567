@@ -28,7 +28,18 @@ SECRET_KEY = 'django-insecure-(za*!)oz=298z1q9@ux@@%#0n$(92_4-pu-szb5la7f#jwo!do
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'mysite.com',
+    'localhost',
+    '127.0.0.1',
+    'AyushDutta977.pythonanywhere.com',
+    'ayushdutta977.pythonanywhere.com',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://AyushDutta977.pythonanywhere.com',
+    'https://ayushdutta977.pythonanywhere.com',
+]
 
 
 # Application definition
@@ -131,6 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
