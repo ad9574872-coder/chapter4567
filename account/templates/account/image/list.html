@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Images{% endblock %}
+
+{% block content %}
+  <h1>Images</h1>
+  <div id="image-list">
+    {% for profile in profiles %}
+      <div class="image">
+        <a href="{{ profile.photo.url }}">
+          <img src="{{ profile.photo.url }}" alt="{{ profile.user.username }}">
+        </a>
+        <div class="info">
+          <a href="{{ profile.photo.url }}">
+            {{ profile.user.get_full_name|default:profile.user.username }}
+          </a>
+        </div>
+      </div>
+    {% empty %}
+      <p>No images have been bookmarked yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Bookmark an image{% endblock %}
+
+{% block content %}
+  <div class="bookmark-create">
+    <h1>Bookmark an image</h1>
+    <div class="bookmark-panel">
+      {% if request.GET.url %}
+        <img src="{{ request.GET.url }}" class="image-preview" alt="">
+      {% endif %}
+      <form method="post" class="bookmark-form">
+        {{ form.url }}
+        <p>
+          {{ form.title.label_tag }}
+          {{ form.title }}
+          {{ form.title.errors }}
+        </p>
+        <p>
+          {{ form.description.label_tag }}
+          {{ form.description }}
+          {{ form.description.errors }}
+        </p>
+        {% csrf_token %}
+        <input type="submit" value="Bookmark it!">
+      </form>
+    </div>
+  </div>
+{% endblock %}
